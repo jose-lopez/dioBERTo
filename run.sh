@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # train tokenizer and get roberta config.json
-python3.9 ./src/dioberto/train_tokenizer.py
+python3.9 ./train_tokenizer.py
 
 # train lang model
-python3.9 ./src/dioberto/run_language_modeling.py \
+python3.9 ./run_language_modeling.py \
     --output_dir ./dioBERTo/model/dioberto-v1 \
     --model_type RobertaForMaskedLM \
     --mlm \
@@ -24,3 +24,6 @@ python3.9 ./src/dioberto/run_language_modeling.py \
     --per_gpu_eval_batch_size 32 \
     --per_gpu_train_batch_size 32 \
     --seed 21
+
+# Visualizing the model's metrics
+tensorboard dev upload --logdir ./dioBERTo/model/dioberto-v1/runs

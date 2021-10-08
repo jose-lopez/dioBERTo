@@ -28,7 +28,6 @@ python3.9 ./run_language_modeling.py \
     --max_grad_norm 100.0 \
     --per_gpu_eval_batch_size 64 \
     --per_gpu_train_batch_size 64 \
-    --evaluate_during_training \
     --evaluation_strategy "steps" \
     --seed 21 \
 

@@ -5,7 +5,7 @@ python3.9 ./train_tokenizer.py
 
 # train lang model
 python3.9 ./run_language_modeling.py \
-    --output_dir ./dioBERTo/model/dioberto-v1 \
+    --output_dir ./dioBERTo/model/weights \
     --model_type RobertaForMaskedLM \
     --mlm \
     --train_data_files "./dioBERTo/text/train/*" \
@@ -26,11 +26,11 @@ python3.9 ./run_language_modeling.py \
     --weight_decay 0.01 \
     --adam_epsilon 1e-6 \
     --max_grad_norm 100.0 \
-    --per_gpu_eval_batch_size 32 \
-    --per_gpu_train_batch_size 32 \
+    --per_gpu_eval_batch_size 64 \
+    --per_gpu_train_batch_size 64 \
     --evaluation_strategy "steps" \
     --seed 21 \
 
 
 # Visualizing the model's metrics
-tensorboard dev upload --logdir ./dioBERTo/model/dioberto-v1/runs
+tensorboard dev upload --logdir ./dioBERTo/model/weights/runs

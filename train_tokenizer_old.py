@@ -12,7 +12,7 @@ import shutil
 
 if __name__ == '__main__':    
     
-    txt_files_dir = "dioBERTo/text"
+    txt_files_dir = "train-roberta-ua/text"
     
     paths = [str(x) for x in Path(txt_files_dir).glob("**/*.txt")]
     print(paths)
@@ -48,21 +48,11 @@ if __name__ == '__main__':
     "hidden_dropout_prob": 0.3,
     "hidden_size": 128,
     "initializer_range": 0.02,
-    "num_attention_heads": 12,
-    "num_hidden_layers": 12,
+    "num_attention_heads": 1,
+    "num_hidden_layers": 1,
     "vocab_size": 52_000,
     "intermediate_size": 256,
-    "max_position_embeddings": 512
+    "max_position_embeddings": 256
     }
     with open(model_path + "config.json", 'w') as fp:
         json.dump(config, fp)
-
-
-    
-    
-    
-        
-    
-
-    
-    

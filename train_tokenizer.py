@@ -8,10 +8,11 @@ from tokenizers import ByteLevelBPETokenizer
 from pathlib import Path
 from os import path
 import json
+import shutil
 
 if __name__ == '__main__':    
     
-    txt_files_dir = "dioBERTo/text"
+    txt_files_dir = "train-roberta-ua/text"
     
     paths = [str(x) for x in Path(txt_files_dir).glob("**/*.txt")]
     print(paths)
@@ -31,41 +32,27 @@ if __name__ == '__main__':
     model_path = "dioBERTo/model/"
     weights_dir =  model_path + "weights"
     
-    if not path.exists(model_path):
-        Path(weights_dir).mkdir(parents=True)
-        
-    # Saving the tokenizer files    
+    if path.exists(model_path):
+        shutil.rmtree('dioBERTo/model')
+
+    Path(weights_dir).mkdir(parents=True)
+    
     tokenizer.save_model(model_path)
     
     # Setting the config for the model
     config = {
-      "architectures": ["RobertaForMaskedLM"],
-      "attention_probs_dropout_prob": 0.1,
-      "bos_token_id": 0,
-      "eos_token_id": 2,
-      "hidden_act": "gelu",
-      "hidden_dropout_prob": 0.1,
-      "hidden_size": 768,
-      "initializer_range": 0.02,
-      "intermediate_size": 3072,
-      "layer_norm_eps": 1e-05,
-      "max_position_embeddings": 514,
-      "model_type": "roberta",
-      "num_attention_heads": 12,
-      "num_hidden_layers": 12,
-      "pad_token_id": 1,
-      "type_vocab_size": 1,
-      "vocab_size": 50265
+    "architectures": ["RobertaForMaskedLM"],
+    "model_type": "roberta",
+    "attention_probs_dropout_prob": 0.1,
+    "hidden_act": "gelu",
+    "hidden_dropout_prob": 0.3,
+    "hidden_size": 128,
+    "initializer_range": 0.02,
+    "num_attention_heads": 1,
+    "num_hidden_layers": 1,
+    "vocab_size": 52_000,
+    "intermediate_size": 256,
+    "max_position_embeddings": 256
     }
     with open(model_path + "config.json", 'w') as fp:
         json.dump(config, fp)
-
-
-    
-    
-    
-        
-    
-
-    
-    

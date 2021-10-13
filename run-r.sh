@@ -23,11 +23,8 @@ python3.9 ./run_language_modeling.py \
     --save_steps 2000 \
     --logging_steps 500 \
     --evaluation_strategy "steps" \
-    --seed 21
+    --seed 21 \
 
-# ls -l ./dioBERTo/model/weights/runs
-# ls -l ./dioBERTo/model/weights/eval_results_lm.txt
+ls -l ./dioBERTo/model/weights/runs
+ls -l ./dioBERTo/model/weights/eval_results_lm.txt
 # cp ./dioBERTo/model/weights/eval_results_lm.txt ./dioBERTo/model/weights/runs
-
-# Visualizing the model's metrics
-#tensorboard dev upload --logdir ./dioBERTo/model/weights/runs

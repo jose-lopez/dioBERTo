@@ -42,7 +42,7 @@ if __name__ == '__main__':
     os.environ["CUDA_LAUNCH_BLOCKING"]='1'  #Makes for easier debugging (just in case)
     weights_dir = "dioBERTo/models/dioberto/weights"    
     
-    cmd = '''python /content/transformers/examples/run_language_modeling.py --output_dir {0}  \
+    cmd = '''python ./transformers/examples/run_language_modeling.py --output_dir {0}  \
     --model_type roberta \
     --mlm \
     --train_data_file {1} \

@@ -46,7 +46,7 @@ if __name__ == '__main__':
     "attention_probs_dropout_prob": 0.1,
     "hidden_act": "gelu",
     "hidden_dropout_prob": 0.3,
-    "hidden_size": 128,
+    "hidden_size": 144,
     "initializer_range": 0.02,
     "num_attention_heads": 12,
     "num_hidden_layers": 12,

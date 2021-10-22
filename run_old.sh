@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # train tokenizer and get roberta config.json
-python3.9 ./train_tokenizer.py
+python3.9 ./train_tokenizer_roberta.py
 
 # train lang model
 python3.9 ./run_language_modeling.py \
@@ -9,7 +9,7 @@ python3.9 ./run_language_modeling.py \
     --model_type RobertaForMaskedLM \
     --mlm \
     --train_data_files "./dioBERTo/text/train/*" \
-    --eval_data_file "./dioBERTo/text/validation/TLG5014.TXT-002.txt" \
+    --eval_data_file "./dioBERTo/text/validation/eval.txt" \
     --config_name "./dioBERTo/model/" \
     --tokenizer_name "./dioBERTo/model/" \
     --do_train \

@@ -22,6 +22,11 @@ python3.9 ./run_language_modeling.py \
     --save_total_limit 2 \
     --save_steps 2000 \
     --logging_steps 500 \
+    --weight_decay 0.01 \
+    --adam_epsilon 1e-6 \
+    --max_grad_norm 100.0 \
+    --per_gpu_eval_batch_size 64 \
+    --per_gpu_train_batch_size 64 \
     --evaluation_strategy "steps" \
     --seed 21
 

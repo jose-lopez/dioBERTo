@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
 
-'''
-Created on 22 oct. 2021
-
-@author: jose-lopez
-'''
-
 from tokenizers import ByteLevelBPETokenizer
 from pathlib import Path
 from os import path
